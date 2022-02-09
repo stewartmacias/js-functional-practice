@@ -8,6 +8,8 @@ const compose = (...functions) => data =>
   }
 } */
 
+// función imperativa
+/*
 const attrsToString = (obj ={}) => {
   const keys = Object.keys(obj);
   const attrs = [];
@@ -20,6 +22,12 @@ const attrsToString = (obj ={}) => {
   const string = attrs.join('');
   return string;
 }
+*/
+// declarativa
+const attrsToString = (obj ={}) =>
+  Object.keys(obj)
+    .map( attr => `${attr}="${obj[attr]}"`)
+    .join('');
 
 const tagAttrs = obj => (content ="") => 
   `<${obj.tag}${obj.attrs ? ' ':''}${attrsToString(obj.attrs)}>
